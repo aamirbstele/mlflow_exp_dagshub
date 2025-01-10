@@ -5,9 +5,12 @@ from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
 import mlflow.sklearn
+import dagshub
+
+dagshub.init(repo_owner='aamirbstele', repo_name='mlflow_exp_dagshub', mlflow=True)
 
 mlflow.set_experiment("water_exp2")
-mlflow.set_tracking_uri('http://localhost:5000')
+mlflow.set_tracking_uri('https://dagshub.com/aamirbstele/mlflow_exp_dagshub.mlflow')
 
 data = pd.read_csv("./data/water_potability.csv")
 
